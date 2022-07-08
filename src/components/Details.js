@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import { Row, Card, Button } from "react-bootstrap";
 
-function UserCard() {
-  const [users, setUsers] = useState([]);
-  const [id, setId] = useState([]);
+import { useParams } from "react-router";
+import { useNavigate } from "react-router-dom";
+import { axios } from "axios";
+
+function Details() {
+  const [detail, setDetail] = useState([]);
+  let { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
-      .get("https://jsonplaceholder.typicode.com/users")
+      .get(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => {
         console.log(res);
-        setUsers(res.data);
+        setDetail(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -21,22 +24,18 @@ function UserCard() {
 
   return (
     <Row>
-      {users.map((user) => (
+      {detail.map((detail) => (
         <Card
           className="m-3 p-3 mx-auto shadow p-3 mb-5 bg-white rounded"
           style={{ width: "18rem" }}
-          key={user.id}
+          key={detail.id}
         >
           <Card.Body>
-            <span class="avatar avatar-96 bg-secondary text-white rounded-circle">
-              {user.name.charAt(0)}
-            </span>
-
-            <Card.Title>{user.name}</Card.Title>
+            <Card.Title>{detail.name}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              @{user.username}
+              @{detail.username}
             </Card.Subtitle>
-            <Card.Link href="#">{user.email}</Card.Link>
+            <Card.Link href="#">{detail.email}</Card.Link>
 
             <Button variant="primary">MORE DETAILS</Button>
           </Card.Body>
@@ -46,4 +45,4 @@ function UserCard() {
   );
 }
 
-export default UserCard;
+export default Details;
