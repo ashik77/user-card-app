@@ -1,3 +1,5 @@
+https://fancy-bonbon-66e011.netlify.app/
+
 Pre-assignment for integrify
 
 A simple web app to fetch data from jSON Placeholder and show them in cards. Each user details are shown in a different route upon button click.
