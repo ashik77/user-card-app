@@ -23,7 +23,7 @@ function UserCard() {
       <Row>
         {users.map((user) => (
           <Card
-            className="m-3 p-3 mx-auto shadow p-3 mb-5 bg-white rounded text-center"
+            className="mt-5 m-3 p-3 mx-auto shadow p-3 mb-5 bg-white rounded text-center"
             style={{ width: "18rem" }}
             key={user.id}
           >
