@@ -5,7 +5,6 @@ import { Row, Card, Button } from "react-bootstrap";
 
 function UserCard() {
   const [users, setUsers] = useState([]);
-  const [id, setId] = useState([]);
 
   useEffect(() => {
     axios
@@ -38,7 +37,13 @@ function UserCard() {
             </Card.Subtitle>
             <Card.Link href="#">{user.email}</Card.Link>
 
-            <Button variant="primary">MORE DETAILS</Button>
+            <Link
+              className="text-decoration-none"
+              style={{ color: "#f06c4e" }}
+              to={`/${user.id}`}
+            >
+              View Detail
+            </Link>
           </Card.Body>
         </Card>
       ))}

@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<UserCard />}></Route>
         <Route exact path="/home" element={<UserCard />}></Route>
-        <Route exact path="/detail" element={<Details />}></Route>
+        <Route exact path="/:id" element={<Details />}></Route>
       </Routes>
     </Router>
   );
