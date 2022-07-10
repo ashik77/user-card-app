@@ -10,8 +10,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<UserCard />}></Route>
-        <Route path="/home" element={<UserCard />}></Route>
+        <Route exact path="/" element={<UserCard />}></Route>
+        <Route exact path="/home" element={<UserCard />}></Route>
         <Route exact path="/users/:id" element={<Details />}></Route>
         <Route path="*" element={<NoMatch />}></Route>
       </Routes>
