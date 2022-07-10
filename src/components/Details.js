@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import { Row, Card } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
@@ -9,7 +9,7 @@ function Details() {
   const [company, setCompany] = useState({});
 
   let { id } = useParams();
-  console.log(id);
+  //console.log(id);
 
   useEffect(() => {
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
