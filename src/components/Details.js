@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { Row, Card, Button } from "react-bootstrap";
-
 import { useParams } from "react-router";
 import { useNavigate } from "react-router-dom";
 
@@ -16,21 +15,11 @@ function Details() {
     const url = `https://jsonplaceholder.typicode.com/users/${id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setDetail(data, data.address));
-  }, []);
-
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setAddress(data.address));
-  }, []);
-
-  useEffect(() => {
-    const url = `https://jsonplaceholder.typicode.com/users/${id}`;
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setCompany(data.company));
+      .then((data) => {
+        setDetail(data);
+        setCompany(data.company);
+        setAddress(data.address);
+      });
   }, []);
 
   const navigate = useNavigate();
