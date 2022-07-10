@@ -38,7 +38,7 @@ function UserCard() {
               <Card.Link className="mb-2" href="#">
                 {user.email}
               </Card.Link>
-              <Link to={`/${user.id}`}>
+              <Link to={`/users/${user.id}`}>
                 <Button className="mt-3" variant="primary">
                   MORE DETAILS
                 </Button>
